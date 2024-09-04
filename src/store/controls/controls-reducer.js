@@ -1,7 +1,8 @@
-import { CLEAR_SEARCH, SET_SEARCH } from "./controls-actions"
+import { CLEAR_CONTROLS, SET_REGION, SET_SEARCH } from "./controls-actions"
 
 const initialState = {
     search: '',
+    region: ''
 }
 
 export const controlsReducer = (state = initialState, {type, payload}) => {
@@ -12,10 +13,16 @@ export const controlsReducer = (state = initialState, {type, payload}) => {
                 search: payload
             }
         }
-        case CLEAR_SEARCH: {
+        case SET_REGION: {
             return {
                 ...state,
-                search: ''
+                region: payload
+            }
+        }
+        case CLEAR_CONTROLS: {
+            return {
+                search: '',
+                region: ''
             }
         }
         default: {

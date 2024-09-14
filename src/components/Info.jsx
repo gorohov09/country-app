@@ -106,15 +106,15 @@ export const Info = (props) => {
     push,
   } = props;
 
-  const dispatch = useDispatch();
-  const countryBorders = useSelector(selectBorders);
+  // const dispatch = useDispatch();
+  // const countryBorders = useSelector(selectBorders);
 
-  useEffect(() => {
-    if (borders.length) {
-      dispatch(loadCountryBorders(borders));
-    }
+  // useEffect(() => {
+  //   if (borders.length) {
+  //     dispatch(loadCountryBorders(borders));
+  //   }
     
-  }, [borders, dispatch])
+  // }, [borders, dispatch])
 
   return (
     <Wrapper>
@@ -163,7 +163,7 @@ export const Info = (props) => {
         </ListGroup>
         <Meta>
           <b>Border Countries</b>
-          {!countryBorders.length ? (
+          {/* {!countryBorders.length ? (
             <span>There is no border countries</span>
           ) : (
             <TagGroup>
@@ -173,7 +173,7 @@ export const Info = (props) => {
                 </Tag>
               ))}
             </TagGroup>
-          )}
+          )} */}
         </Meta>
       </div>
     </Wrapper>

@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
-
-import { Container } from './Container';
+import { Container } from '../../components/Container';
+import { selectTheme, switchTheme } from './theme-slice';
 import { useDispatch, useSelector } from 'react-redux';
-import { switchTheme } from '../store/theme/theme-actions';
-import { clearControls } from '../store/controls/controls-actions';
+import { useEffect } from 'react';
 
 const HeaderEl = styled.header`
   box-shadow: var(--shadow);
@@ -38,7 +36,7 @@ const ModeSwitcher = styled.div`
 `;
 
 export const Header = () => {
-  const theme = useSelector((state) => state.theme);
+  const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
 
@@ -50,8 +48,11 @@ export const Header = () => {
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title onClick={() => dispatch(clearControls)}>Where is the world?</Title>
-          <ModeSwitcher onClick={() => dispatch(switchTheme)}>
+          <Title 
+          //onClick={() => dispatch(clearControls)}
+          >
+            Where is the world?</Title>
+          <ModeSwitcher onClick={() => dispatch(switchTheme())}>
             {theme === 'light' ? (
               <IoMoonOutline size="14px" />
             ) : (

@@ -13,22 +13,24 @@ export const HomePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const {search, region} = useSelector(selectAllControls);
-  const countries = useSelector((state) => selectVisibleCountries(state, {search, region}));
-  const {status, error, qty} = useSelector(selectCountriesInfo);
+  // const {search, region} = useSelector(selectAllControls);
+  // const countries = useSelector((state) => selectVisibleCountries(state, {search, region}));
+  // const {status, error, qty} = useSelector(selectCountriesInfo);
 
-  useEffect(() => {
-    if (!qty) {
-      dispatch(loadCountries());
-    }
-  }, [qty, dispatch])
+  // useEffect(() => {
+  //   if (!qty) {
+  //     dispatch(loadCountries());
+  //   }
+  // }, [qty, dispatch])
+  const status = 'received';
+  const countries = [];
 
   return (
     <>
       <Controls />
 
-      {error && <h2>Can't fetch data</h2>}
-      {status === 'loading' && <h2>Loading...</h2>}
+      {/* {error && <h2>Can't fetch data</h2>}
+      {status === 'loading' && <h2>Loading...</h2>} */}
       {status === 'received' && (
           <List>
             {countries.map((c) => {

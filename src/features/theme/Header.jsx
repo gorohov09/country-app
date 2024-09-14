@@ -5,6 +5,7 @@ import { Container } from '../../components/Container';
 import { selectTheme, switchTheme } from './theme-slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import {clearControls} from '../controls/controls-slice';
 
 const HeaderEl = styled.header`
   box-shadow: var(--shadow);
@@ -49,7 +50,7 @@ export const Header = () => {
       <Container>
         <Wrapper>
           <Title 
-          //onClick={() => dispatch(clearControls)}
+          onClick={() => dispatch(clearControls())}
           >
             Where is the world?</Title>
           <ModeSwitcher onClick={() => dispatch(switchTheme())}>

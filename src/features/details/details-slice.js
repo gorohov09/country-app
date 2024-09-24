@@ -22,18 +22,18 @@ export const loadCountryBorders = createAsyncThunk(
     }
 )
 
+const initialState = {
+    currentCountry: null,
+    borders: [],
+    status: 'idle',
+    errror: null,
+}
+
 const detailsSlice = createSlice({
     name: '@@details',
-    initialState: {
-        currentCountry: null,
-        borders: [],
-        status: 'idle',
-        errror: null,
-    },
+    initialState: initialState,
     reducers: {
-        clearCountry: (state, _) => {
-            state.currentCountry = null;
-        }
+        clearCountry: () => initialState
     },
     extraReducers: (builder) => {
         builder

@@ -1,8 +1,5 @@
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { loadCountryBorders, selectBorders } from './details-slice';
-import { useEffect } from 'react';
+import { useBorders } from './use-borders';
 
 const Wrapper = styled.section`
   margin-top: 3rem;
@@ -106,15 +103,7 @@ export const Info = (props) => {
     push,
   } = props;
 
-  const dispatch = useDispatch();
-  const countryBorders = useSelector(selectBorders);
-
-  useEffect(() => {
-    if (borders.length) {
-      dispatch(loadCountryBorders(borders));
-    }
-    
-  }, [borders, dispatch])
+  const [countryBorders] = useBorders(borders)
 
   return (
     <Wrapper>
